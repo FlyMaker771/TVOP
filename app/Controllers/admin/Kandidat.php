@@ -14,22 +14,29 @@ class Kandidat extends BaseController
 
     public function index()
     {
-        $data = [
-            'title' => "Admin Kandidat | TexasVoice",
-            'header' => "Data Kandidat",
-            'cardtitle' => "Tabel Kandidat",
-            'inputtitle' => "Form Input Data Kandidat",
-            'updatetitle' => "Form Update Data Kandidat",
-            'deletetitle' => "Delete Data Kandidat",
-        ];
+        date_default_timezone_set('Asia/Jakarta');
+        $currentDateTime = date('Y-m-d H:i:s');
+        if ($currentDateTime > session()->get('max_time')) {
+            # code...
+            echo view('v_habis');
+        } else {
+            $data = [
+                'title' => "Admin Kandidat | TexasVoice",
+                'header' => "Data Kandidat",
+                'cardtitle' => "Tabel Kandidat",
+                'inputtitle' => "Form Input Data Kandidat",
+                'updatetitle' => "Form Update Data Kandidat",
+                'deletetitle' => "Delete Data Kandidat",
+            ];
 
-        $data['kandidat'] = $this->kandidat->getKandidat()->getResult();
+            $data['kandidat'] = $this->kandidat->getKandidat()->getResult();
 
-        $data['kandidatcount'] = $this->kandidat->countAll();
+            $data['kandidatcount'] = $this->kandidat->countAll();
 
-        $data['page'] = view('admin/v_kandidat', $data);
+            $data['page'] = view('admin/v_kandidat', $data);
 
-        echo view("admin/v_homepage", $data);
+            echo view("admin/v_homepage", $data);
+        }
     }
 
     //input foto

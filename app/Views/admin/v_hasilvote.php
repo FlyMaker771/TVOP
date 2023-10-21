@@ -49,13 +49,13 @@
                     Total Data
                 </div> -->
         <!-- /.card-footer-->
-</div>
-<!-- <div class="card-footer">
+
+        <!-- <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Upload</button>
             </div> -->
-<!-- /.card -->
-</section>
-<!-- /.content -->
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
 </div>
 <script>
     $(function() {

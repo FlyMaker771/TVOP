@@ -62,7 +62,9 @@
             <!-- Brand Logo -->
             <a href="https://www.smktexar.com/" class="brand-link">
                 <img src="<?php echo base_url('assets/adminlte') ?>/dist/img/logoTexar.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-                <!-- <span class="brand-text font-weight-light"> <?= session()->get('id_outlet') ?></span> -->
+                <span class="brand-text font-weight-light">Texas Voice</span>
+                <img src="<?php echo base_url('assets/adminlte') ?>/dist/img/LOGO SMKASSALAM.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+
             </a>
 
             <!-- Sidebar -->
@@ -74,13 +76,11 @@
                             <img src="<?php echo base_url('assets/adminlte') ?>/dist/img/logoTixarnobg.png" class="brand-image" alt="User Image" style="width: 100px;">
                         </a>
                     </div>
-                    <div class="info">
-                        <a href="" class="d-block"><?= session()->get('nama') ?></a>
-                    </div>
+
                 </div>
                 <div class="user-panel mt-3 mb-4 d-flex">
                     <div class="info">
-                        <p class="text-white">Your Role as: <?= session()->get('role') ?></p>
+                        <p class="text-white">Welcome: <?= session()->get('nama') ?></p>
                     </div>
                 </div>
 
@@ -261,7 +261,7 @@
     <script src="<?php echo base_url('assets/adminlte') ?>/plugins/moment/moment.min.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="<?php echo base_url('assets/adminlte') ?>/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script>
+    <!-- <script>
         $(function() {
             $('#tglTransaksi').datetimepicker({
                 icons: {
@@ -279,7 +279,7 @@
                 }
             });
         })
-    </script>
+    </script> -->
     <script>
         $(document).ready(function() {
             $('.btn-edit-pengguna').on('click', function() {

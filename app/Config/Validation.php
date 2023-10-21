@@ -2,11 +2,13 @@
 
 namespace Config;
 
+use App\Models\PenggunaModel;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Validation\StrictRules\CreditCardRules;
 use CodeIgniter\Validation\StrictRules\FileRules;
 use CodeIgniter\Validation\StrictRules\FormatRules;
 use CodeIgniter\Validation\StrictRules\Rules;
+use \App\Validation\AuthRules;
 
 class Validation extends BaseConfig
 {
@@ -25,6 +27,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+        // AuthRules::class,
     ];
 
     /**
@@ -41,4 +44,20 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    // public function validateUser(string $str, string $fields, array $data): bool
+    // {
+    //     [$usernameField, $passwordField] = explode(',', $fields);
+    //     $username = $data[$usernameField];
+    //     $password = $data[$passwordField];
+
+    //     $model = new PenggunaModel();
+    //     $user = $model->where('nama', $username)->first();
+
+    //     if (!$user || !password_verify($password, $user['password'])) {
+    //         return false; // Kombinasi username dan password tidak cocok
+    //     }
+
+    //     return true; // Kombinasi username dan password cocok
+    // }
 }

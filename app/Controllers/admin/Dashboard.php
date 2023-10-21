@@ -20,13 +20,20 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $data = [
-            'title' => "Admin Dashboard | TexasVoice",
-            'header' => "Dashboard",
-        ];
+        date_default_timezone_set('Asia/Jakarta');
+        $currentDateTime = date('Y-m-d H:i:s');
+        if ($currentDateTime > session()->get('max_time')) {
+            # code...
+            echo view('v_habis');
+        } else {
+            $data = [
+                'title' => "Admin Dashboard | TexasVoice",
+                'header' => "Dashboard",
+            ];
 
-        $data['page'] = view('admin/v_dashboard', $data);
+            $data['page'] = view('admin/v_dashboard', $data);
 
-        echo view("admin/v_homepage", $data);
+            echo view("admin/v_homepage", $data);
+        }
     }
 }

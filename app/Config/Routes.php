@@ -29,3 +29,5 @@ $routes->get('/admin/uploadfile', 'admin\UploadFile::index');
 $routes->get('/admin/hasilvote', 'admin\HasilVote::index');
 
 $routes->get('/voters/vote', 'voters\Vote::index');
+
+$routes->get('/time/timeout', 'habis::index');

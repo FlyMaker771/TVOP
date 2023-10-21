@@ -14,22 +14,29 @@ class Pengguna extends BaseController
 
     public function index()
     {
-        $data = [
-            'title' => "Admin Pengguna | TexasVoice",
-            'header' => "Data Pengguna",
-            'cardtitle' => "Tabel Pengguna",
-            'inputtitle' => "Form Input Data Pengguna",
-            'updatetitle' => "Form Update Data Pengguna",
-            'deletetitle' => "Delete Data Pengguna",
-        ];
+        date_default_timezone_set('Asia/Jakarta');
+        $currentDateTime = date('Y-m-d H:i:s');
+        if ($currentDateTime > session()->get('max_time')) {
+            # code...
+            echo view('v_habis');
+        } else {
+            $data = [
+                'title' => "Admin Pengguna | TexasVoice",
+                'header' => "Data Pengguna",
+                'cardtitle' => "Tabel Pengguna",
+                'inputtitle' => "Form Input Data Pengguna",
+                'updatetitle' => "Form Update Data Pengguna",
+                'deletetitle' => "Delete Data Pengguna",
+            ];
 
-        $data['pengguna'] = $this->pengguna->getAkun()->getResult();
+            $data['pengguna'] = $this->pengguna->getAkun()->getResult();
 
-        $data['penggunacount'] = $this->pengguna->countAll();
+            $data['penggunacount'] = $this->pengguna->countAll();
 
-        $data['page'] = view('admin/v_pengguna', $data);
+            $data['page'] = view('admin/v_pengguna', $data);
 
-        echo view("admin/v_homepage", $data);
+            echo view("admin/v_homepage", $data);
+        }
     }
     public function save()
     {
